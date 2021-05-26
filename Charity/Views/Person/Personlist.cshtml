@@ -1,0 +1,35 @@
+﻿@model  List<Charity.Context.tb_person>
+@{
+    ViewBag.Title = "Personlist";
+}
+
+<table class="table table-hover">
+    <tr>
+        <th>FName</th>
+        <th>lName</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Price</th>
+        <th>Action</th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.FName</td>
+    <td>@item.LName</td>
+    <td>@item.Email</td>
+    <td>@item.Mobile</td>
+    <td>@item.Price</td>
+    <td>@item.FName</td>
+    <td>
+        <a href="@Url.Action("Person", new { item.ID, item.FName, item.LName, item.Email, item.Mobile, item.Price })" class="btn btn-success">Edit</a>
+        <a href="@Url.Action("Delete",new {  item.ID})" class="btn btn-danger">Delete</a>
+
+</td>
+
+</tr>
+    }
+
+</table>
+
